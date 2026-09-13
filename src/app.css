@@ -1,0 +1,370 @@
+@import 'tailwindcss';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+/* Bolt brand tokens. Flat solids only: zero glow, zero gradient. */
+:root {
+  --bolt-action: #d92d12;
+  --bolt-action-hover: #b8250e;
+  --bolt-action-on: #ffffff;
+  --bolt-action-soft: #ffe4db;
+  --bolt-action-strong: #a3230e;
+  --bolt-ink: #16161a;
+  --bolt-muted: #3f3f46;
+  --bolt-faint: #71717a;
+  --bolt-bg: #fafaf8;
+  --bolt-surface: #ffffff;
+  --bolt-surface-hover: #f1f1ee;
+  --bolt-line: #e5e5ea;
+  --bolt-attention: #f7b626;
+  --bolt-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+
+  /* Discord-authentic profile tokens. Scoped to profile card only. */
+  --discord-outer: #1e1f22;
+  --discord-inner: #111214;
+  --discord-panel: #2b2d31;
+  --discord-text: #dbdee1;
+  --discord-muted: #b5bac1;
+  --discord-faint: #80848e;
+  --discord-line: #3f4147;
+  --discord-blurple: #5865f2;
+  --discord-blurple-hover: #4752c4;
+  --discord-green: #23a55a;
+  --discord-btn-gray: #4e5058;
+  --discord-btn-gray-hover: #6d6f78;
+}
+
+:root[data-theme='dark'] {
+  --bolt-action: #ff6a4d;
+  --bolt-action-hover: #ff8266;
+  --bolt-action-on: #1d1d1f;
+  --bolt-action-soft: #3a130c;
+  --bolt-action-strong: #ff8a70;
+  --bolt-ink: #f5f5f7;
+  --bolt-muted: #c9c9d1;
+  --bolt-faint: #a1a1a6;
+  --bolt-bg: #0e0e11;
+  --bolt-surface: #16161a;
+  --bolt-surface-hover: #232329;
+  --bolt-line: #2c2c2e;
+}
+
+@theme inline {
+  --color-bolt-action: var(--bolt-action);
+  --color-bolt-action-hover: var(--bolt-action-hover);
+  --color-bolt-action-on: var(--bolt-action-on);
+  --color-bolt-action-soft: var(--bolt-action-soft);
+  --color-bolt-action-strong: var(--bolt-action-strong);
+  --color-bolt-ink: var(--bolt-ink);
+  --color-bolt-muted: var(--bolt-muted);
+  --color-bolt-faint: var(--bolt-faint);
+  --color-bolt-bg: var(--bolt-bg);
+  --color-bolt-surface: var(--bolt-surface);
+  --color-bolt-surface-hover: var(--bolt-surface-hover);
+  --color-bolt-line: var(--bolt-line);
+  --color-bolt-attention: var(--bolt-attention);
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bolt-bg);
+}
+
+body {
+  background: transparent;
+  color: var(--bolt-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--bolt-action-soft);
+  color: var(--bolt-action-strong);
+}
+
+@layer base {
+  :where(a, button, input, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--bolt-action);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+/* Ambient brand wash + faint dot matrix. No glow on elements, no gradients on controls. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(var(--bolt-line) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+  opacity: 0.45;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 30rem at 12% -6%, color-mix(in srgb, var(--bolt-action) 9%, transparent), transparent 65%),
+    radial-gradient(44rem 26rem at 88% 2%, color-mix(in srgb, var(--bolt-action) 6%, transparent), transparent 60%),
+    radial-gradient(40rem 26rem at 50% 55%, color-mix(in srgb, var(--bolt-action) 4%, transparent), transparent 62%),
+    radial-gradient(48rem 28rem at 85% 100%, color-mix(in srgb, var(--bolt-action) 5%, transparent), transparent 62%);
+}
+:root[data-theme='dark'] body::before {
+  opacity: 0.3;
+}
+:root[data-theme='dark'] body::after {
+  background:
+    radial-gradient(52rem 30rem at 12% -6%, color-mix(in srgb, var(--bolt-action) 16%, transparent), transparent 65%),
+    radial-gradient(44rem 26rem at 88% 2%, color-mix(in srgb, var(--bolt-action) 10%, transparent), transparent 60%),
+    radial-gradient(40rem 26rem at 50% 55%, color-mix(in srgb, var(--bolt-action) 8%, transparent), transparent 62%),
+    radial-gradient(48rem 28rem at 85% 100%, color-mix(in srgb, var(--bolt-action) 9%, transparent), transparent 62%);
+}
+
+/* Subtle motion only. */
+@media (prefers-reduced-motion: no-preference) {
+  .bolt-fade {
+    transition:
+      opacity 160ms ease-out,
+      transform 180ms ease-out,
+      background-color 160ms ease-out,
+      border-color 160ms ease-out,
+      color 160ms ease-out;
+  }
+  .bolt-lift {
+    transition:
+      transform 180ms ease-out,
+      border-color 160ms ease-out;
+  }
+  .bolt-lift:hover {
+    transform: translateY(-2px);
+  }
+  @keyframes bolt-enter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .bolt-enter {
+    animation: bolt-enter 320ms ease-out both;
+  }
+  @keyframes bolt-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.98) translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .bolt-pop {
+    animation: bolt-pop 140ms ease-out both;
+  }
+}
+
+/* Page transition: the keyed wrapper remounts on every route change,
+   so this entrance replays on each navigation. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes bolt-page-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .bolt-page-enter {
+    animation: bolt-page-in 420ms ease-out both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bolt-fade,
+  .bolt-lift {
+    transition: none;
+  }
+  .bolt-lift:hover {
+    transform: none;
+  }
+  .bolt-enter,
+  .bolt-pop {
+    animation: none;
+  }
+}
+
+/* Markdown prose for guide pages. */
+.bolt-prose {
+  max-width: 46rem;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.bolt-prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.75rem;
+  scroll-margin-top: 6rem;
+}
+.bolt-prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 2rem 0 0.5rem;
+  scroll-margin-top: 6rem;
+}
+.bolt-prose p {
+  margin: 0.875rem 0;
+  color: var(--bolt-muted);
+}
+.bolt-prose h2 + p,
+.bolt-prose h3 + p {
+  margin-top: 0.25rem;
+}
+.bolt-prose ul,
+.bolt-prose ol {
+  margin: 0.875rem 0;
+  padding-inline-start: 1.5rem;
+  color: var(--bolt-muted);
+}
+.bolt-prose li + li {
+  margin-top: 0.375rem;
+}
+.bolt-prose code:not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--bolt-surface-hover);
+  border: 1px solid var(--bolt-line);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+}
+.bolt-prose pre {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--bolt-surface);
+  border: 1px solid var(--bolt-line);
+  border-radius: 12px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.bolt-prose pre code {
+  font-family: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.bolt-prose a {
+  color: var(--bolt-action-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.bolt-prose strong {
+  color: var(--bolt-ink);
+}
+
+/* Native dropdown options follow the theme (otherwise white-on-white). */
+select option {
+  background: var(--bolt-surface);
+  color: var(--bolt-ink);
+}
+
+/* Thin scrollbars that stay out of the way. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bolt-line) transparent;
+}
+
+/* ---- Command registry chrome ---- */
+.bolt-sticky-bar {
+  position: sticky;
+  top: calc(4rem + 0.5rem);
+  z-index: 10;
+  padding: 0.75rem;
+  margin-inline: -0.75rem;
+  border: 1px solid var(--bolt-line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bolt-bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bolt-module-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 40px;
+  padding: 0.375rem 0.375rem 0.375rem 0.875rem;
+  border: 1px solid var(--bolt-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--bolt-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.bolt-module-pill:hover {
+  border-color: var(--bolt-faint);
+  color: var(--bolt-ink);
+}
+.bolt-module-pill.is-active {
+  background: var(--bolt-action-soft);
+  border-color: transparent;
+  color: var(--bolt-action-strong);
+}
+.bolt-module-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding-inline: 0.375rem;
+  border-radius: 999px;
+  background: var(--bolt-surface-hover);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Shell / rail glide (single curve, both sides) ---- */
+.bolt-shell,
+.bolt-rail {
+  will-change: padding-inline-start, width;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bolt-shell {
+    transition: padding-inline-start 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .bolt-rail {
+    transition: width 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bolt-shell,
+  .bolt-rail {
+    transition: none;
+  }
+}

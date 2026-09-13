@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/bolt_pfp.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Setup, commands, permissions and moderation workflows for Bolt." />
+    <meta name="theme-color" content="#ff482c" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" />
+    <meta property="og:title" content="Bolt — Discord moderation docs" />
+    <meta property="og:description" content="Setup, commands, permissions and moderation workflows for Bolt." />
+    <meta property="og:image" content="/bolt_banner.png" />
+    <title>Bolt — Discord moderation docs</title>
+    <script>
+      try {
+        var mode = localStorage.getItem('bolt-site-theme') || 'system';
+        var resolved =
+          mode === 'system' ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : mode;
+        document.documentElement.dataset.theme = resolved;
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

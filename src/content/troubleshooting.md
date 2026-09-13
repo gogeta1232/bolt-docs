@@ -1,0 +1,5 @@
+- `You do not have permission to use this command.` — actor lacks owner / `Administrator` / `ManageGuild` / admin role. See `src/lib/respond.ts`.
+- `This command can only be used in a server.` — command ran in DMs; most commands require `GUILD_ANY`.
+- Bot cannot ban/kick/mute — move Bolt's role above the target, grant `BanMembers` / `KickMembers` / `ManageRoles`.
+- Logs not arriving — run `/setup`, confirm `SendMessages` + `EmbedLinks` in the log channel.
+- Prefix ignored — check `GuildConfig.prefix` and `noPrefixMode`; DMs fall back to default `!`.

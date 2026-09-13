@@ -1,0 +1,61 @@
+{
+  "name": "bolt-docs",
+  "version": "1.0.0",
+  "description": "Documentation site for Bolt — Discord moderation bot. Vite + React, auto-synced from Bolt-OS.",
+  "private": false,
+  "license": "MIT",
+  "homepage": "https://github.com/gogeta1232/bolt-docs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gogeta1232/bolt-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gogeta1232/bolt-docs/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && node -e \"require('node:fs').copyFileSync('dist/index.html', 'dist/404.html')\"",
+    "preview": "vite preview",
+    "lint": "oxlint",
+    "typecheck": "tsc -b --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "sync:commands": "node scripts/sync-commands.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.45.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-markdown": "^10.1.0",
+    "react-router": "^8.3.1",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "keywords": [
+    "discord",
+    "bolt",
+    "documentation",
+    "vite",
+    "react"
+  ]
+}
