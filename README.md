@@ -23,7 +23,7 @@
 </div>
 
 <p style="margin:14px 0 0 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#6b6b6b;">
-44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt-OS" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">Bolt-OS</a> · live at <a href="https://bolt-docs.vercel.app" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">bolt-docs.vercel.app</a>
+44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt-OS" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">Bolt-OS</a> · live at <a href="https://bolt-docs-gogeta1232s-projects.vercel.app" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">bolt-docs.vercel.app</a>
 </p>
 
 </div>
@@ -35,7 +35,7 @@
 **One registry, never hand-edited.** `commands.json` is generated from `Bolt-OS/src/commands` and pulled nightly — docs never drift.
 
 <p style="margin:14px 0 0 0;">
-<a href="https://bolt-docs.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-bolt--docs.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c" /></a>&nbsp;
+<a href="https://bolt-docs-gogeta1232s-projects.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-bolt--docs.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c" /></a>&nbsp;
 <a href="https://github.com/gogeta1232/bolt-docs/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/badge/CI-passing-2ea043?style=for-the-badge&labelColor=%230c0c0d&color=%232ea043" /></a>&nbsp;
 <a href="https://github.com/gogeta1232/Bolt-OS"><img alt="Bolt-OS" src="https://img.shields.io/badge/Bolt--OS-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328" /></a>
 </p>
@@ -114,7 +114,7 @@ Hardened: no `rehypeRaw`, `ReactMarkdown` `urlTransform` blocks `javascript:`/`d
 Bolt-OS  push src/commands/** ──► npm run docs:export ──► site/src/data/commands.json ──► dispatch
                                                       │
 bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json ── nightly 03:17 UTC + on dispatch
-          └─ commit if changed ──► Vercel auto-deploys main → https://bolt-docs.vercel.app
+          └─ commit if changed ──► Vercel auto-deploys main → https://bolt-docs-gogeta1232s-projects.vercel.app
 ```
 
 Manual:
