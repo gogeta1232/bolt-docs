@@ -80,28 +80,15 @@ export function HomePage(): React.JSX.Element {
             </Link>
           </div>
 
-          {/* Stamped spec plate — single source for inventory. Replaces big-number hero. */}
-          <div
-            className="bolt-enter bolt-spec-plate mt-8"
+          <dl
+            className="bolt-enter mt-8 grid max-w-md grid-cols-3 divide-x divide-(--bolt-line) border-y border-(--bolt-line)"
             style={{ animationDelay: '200ms' }}
             aria-label={`Bolt spec: ${commandData.count} commands, ${modules} modules, ${GUIDES.length} guides`}
           >
-            <div className="bolt-spec-cell">
-              <span className="bolt-spec-kicker">Commands</span>
-              <span className="bolt-spec-value">{commandData.count}</span>
-              <span className="bolt-spec-meta">each writes a case</span>
-            </div>
-            <div className="bolt-spec-cell">
-              <span className="bolt-spec-kicker">Modules</span>
-              <span className="bolt-spec-value">{modules}</span>
-              <span className="bolt-spec-meta">moderation → permissions</span>
-            </div>
-            <div className="bolt-spec-cell">
-              <span className="bolt-spec-kicker">Guides</span>
-              <span className="bolt-spec-value">{GUIDES.length}</span>
-              <span className="bolt-spec-meta">written from source</span>
-            </div>
-          </div>
+            <Stat value={String(commandData.count)} label="Commands" />
+            <Stat value={String(modules)} label="Modules" />
+            <Stat value={String(GUIDES.length)} label="Guides" />
+          </dl>
 
           <figure
             className="bolt-enter mt-6 overflow-hidden rounded-xl border border-(--bolt-line) bg-(--bolt-surface)"
@@ -255,6 +242,15 @@ export function HomePage(): React.JSX.Element {
           </div>
         </div>
       </section>
+    </div>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }): React.JSX.Element {
+  return (
+    <div className="px-4 py-3 text-left first:pl-0">
+      <dd className="font-display text-2xl font-bold text-(--bolt-ink) tabular-nums">{value}</dd>
+      <dt className="mt-0.5 text-[11px] font-medium tracking-[0.14em] text-(--bolt-faint) uppercase">{label}</dt>
     </div>
   );
 }

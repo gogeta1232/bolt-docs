@@ -482,7 +482,7 @@ select option {
   margin-top: 0.9rem;
 }
 
-/* ---- Registry rows ---- */
+/* ---- Registry rows — subtle, arrow moves, not full row — */
 .bolt-registry-row {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -490,19 +490,10 @@ select option {
   gap: 0.25rem 1rem;
   border-top: 1px solid var(--bolt-line);
   padding-block: 1.15rem;
-  transition:
-    background-color 160ms ease-out,
-    padding-inline 160ms ease-out;
 }
 .bolt-registry-row:hover {
-  background: color-mix(in srgb, var(--bolt-surface) 96%, var(--bolt-action-soft));
-  padding-inline: 0.5rem;
-  margin-inline: -0.5rem;
-  border-radius: 10px;
-  border-top-color: transparent;
-}
-.bolt-registry-row:hover + .bolt-registry-row {
-  border-top-color: transparent;
+  /* keep it subtle — no background, no padding shift */
+  background: transparent;
 }
 @media (min-width: 1024px) {
   .bolt-registry-row {
