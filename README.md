@@ -1,73 +1,33 @@
-<div align="center" style="max-width:920px;margin:0 auto;">
-
-<!-- brass spec plate — same stamped language as Bolt, tuned for docs -->
-<div style="border:1.5px solid #22211e;border-radius:16px;overflow:hidden;background:#0c0c0d;line-height:0;">
-
-<img src="public/bolt_banner.png" alt="Bolt — stamped brass" width="920" style="display:block;width:100%;max-width:920px;height:auto;" />
-
-<div style="display:flex;align-items:center;gap:16px;padding:16px 18px;background:#0c0c0d;text-align:left;line-height:1;">
-
-<img src="public/bolt_pfp.webp" alt="bolt-docs" width="64" height="64" style="display:block;width:64px;height:64px;border-radius:12px;border:1px solid #2a2a2a;flex:0 0 auto;" />
-
-<div style="min-width:0;flex:1 1 auto;text-align:left;">
-<div style="font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.03em;color:#faf8f3;line-height:1;">bolt-docs</div>
-<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-weight:500;font-size:12.5px;color:#a8a9ad;line-height:1.4;margin-top:3px;">Vite + React · <span style="color:#faf8f3;">Bolt</span> registry · auto-synced · MIT</div>
-</div>
-
-<div style="flex:0 0 auto;display:flex;gap:8px;align-items:center;">
-<span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;font-weight:600;letter-spacing:0.04em;color:#0c0c0d;background:#f7b626;padding:7px 10px;border-radius:999px;">MIT</span>
-<span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#e8e8e6;border:1px solid #2a2a2a;padding:6px 10px;border-radius:999px;">vite 8 · react 19</span>
-</div>
-
-</div>
-</div>
-
-<p style="margin:14px 0 0 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#6b6b6b;">
-44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">Bolt</a> · live at <a href="https://boltdoc.vercel.app" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">boltdoc.vercel.app</a>
+<p align="center">
+  <img src="public/bolt_banner.png" width="920" alt="Bolt — stamped brass">
 </p>
 
-</div>
+<p align="center">
+  <img src="public/bolt_pfp.webp" width="64" height="64" alt="bolt-docs"><br>
+  <strong>bolt-docs</strong><br>
+  Vite + React · Bolt registry · auto-synced · MIT<br>
+  <a href="#license"><img alt="MIT" src="https://img.shields.io/badge/MIT-f7b626?style=flat-square&labelColor=0c0c0d&color=f7b626"></a>
+  <a href="#what-lives-here"><img alt="vite 8 · react 19" src="https://img.shields.io/badge/vite%208%20%C2%B7%20react%2019-2a2a2a?style=flat-square&labelColor=0c0c0d&color=2a2a2a"></a><br>
+  <sub>44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt">Bolt</a> · live at <a href="https://boltdoc.vercel.app">boltdoc.vercel.app</a></sub>
+</p>
+
+<p align="center">
+  <a href="https://boltdoc.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-boltdoc.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c"></a>&nbsp;
+  <a href="https://github.com/gogeta1232/bolt-docs/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/badge/CI-passing-2ea043?style=for-the-badge&labelColor=%230c0c0d&color=%232ea043"></a>&nbsp;
+  <a href="https://github.com/gogeta1232/Bolt"><img alt="Bolt" src="https://img.shields.io/badge/Bolt-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328"></a>
+</p>
+
+<p align="center">
+  <em>One registry, never hand-edited.</em> <code>commands.json</code> is generated from <code>Bolt/src/commands</code> and pulled nightly — docs never drift.
+</p>
 
 ---
 
-<div align="center">
-
-**One registry, never hand-edited.** `commands.json` is generated from `Bolt/src/commands` and pulled nightly — docs never drift.
-
-<p style="margin:14px 0 0 0;">
-<a href="https://boltdoc.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-boltdoc.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c" /></a>&nbsp;
-<a href="https://github.com/gogeta1232/bolt-docs/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/badge/CI-passing-2ea043?style=for-the-badge&labelColor=%230c0c0d&color=%232ea043" /></a>&nbsp;
-<a href="https://github.com/gogeta1232/Bolt"><img alt="Bolt" src="https://img.shields.io/badge/Bolt-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328" /></a>
-</p>
-
-</div>
-
 ### Inventory at a glance
 
-<table>
-<tr>
-<td width="25%" align="center" valign="top" style="background:#0c0c0d;border:1px solid #22211e;border-top:3px solid #f7b626;border-radius:12px;padding:16px;">
-<div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:0.08em;color:#a8a9ad;">COMMANDS</div>
-<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.04em;color:#faf8f3;line-height:1;margin-top:6px;">44</div>
-<div style="font-family:ui-sans-serif,sans-serif;font-size:12px;color:#a8a9ad;margin-top:4px;">searchable · slash + prefix</div>
-</td>
-<td width="25%" align="center" valign="top" style="background:#0c0c0d;border:1px solid #22211e;border-top:3px solid #f7b626;border-radius:12px;padding:16px;">
-<div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:0.08em;color:#a8a9ad;">GUIDES</div>
-<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.04em;color:#faf8f3;line-height:1;margin-top:6px;">11</div>
-<div style="font-family:ui-sans-serif,sans-serif;font-size:12px;color:#a8a9ad;margin-top:4px;">markdown · from source</div>
-</td>
-<td width="25%" align="center" valign="top" style="background:#0c0c0d;border:1px solid #22211e;border-top:3px solid #f7b626;border-radius:12px;padding:16px;">
-<div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:0.08em;color:#a8a9ad;">SYNC</div>
-<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.04em;color:#faf8f3;line-height:1;margin-top:6px;">nightly</div>
-<div style="font-family:ui-sans-serif,sans-serif;font-size:12px;color:#a8a9ad;margin-top:4px;">+ on push dispatch</div>
-</td>
-<td width="25%" align="center" valign="top" style="background:#0c0c0d;border:1px solid #22211e;border-top:3px solid #f7b626;border-radius:12px;padding:16px;">
-<div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:0.08em;color:#a8a9ad;">STACK</div>
-<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.04em;color:#faf8f3;line-height:1;margin-top:6px;">vite 8</div>
-<div style="font-family:ui-sans-serif,sans-serif;font-size:12px;color:#a8a9ad;margin-top:4px;">react 19 · ts 6</div>
-</td>
-</tr>
-</table>
+| COMMANDS | GUIDES | SYNC | STACK |
+|---|---|---|---|
+| **44**<br><sub>searchable · slash + prefix</sub> | **11**<br><sub>markdown · from source</sub> | **nightly**<br><sub>+ on push dispatch</sub> | **vite 8**<br><sub>react 19 · ts 6</sub> |
 
 > Isolated `Vite` site — no bot runtime inside. Reads `src/data/commands.json` only.
 
@@ -169,6 +129,6 @@ See `.env.example`. Do not commit `.env.local`.
 MIT — [LICENSE.md](LICENSE.md).  
 Bolt bot itself is [Elastic License 2.0](https://github.com/gogeta1232/Bolt/blob/main/LICENSE.md) — source-available, not OSI open source.
 
-<p align="center" style="margin-top:28px;">
-<sub style="color:#6b6b6b;">bolt-docs — Vite · React · Tailwind · <a href="https://github.com/gogeta1232/Bolt" style="color:#6b6b6b;">Bolt</a> · MIT</sub>
+<p align="center">
+<sub>bolt-docs — Vite · React · Tailwind · <a href="https://github.com/gogeta1232/Bolt">Bolt</a> · MIT</sub>
 </p>
