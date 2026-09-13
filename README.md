@@ -11,7 +11,7 @@
 
 <div style="min-width:0;flex:1 1 auto;text-align:left;">
 <div style="font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.03em;color:#faf8f3;line-height:1;">bolt-docs</div>
-<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-weight:500;font-size:12.5px;color:#a8a9ad;line-height:1.4;margin-top:3px;">Vite + React · <span style="color:#faf8f3;">Bolt-OS</span> registry · auto-synced · MIT</div>
+<div style="font-family:ui-sans-serif,system-ui,sans-serif;font-weight:500;font-size:12.5px;color:#a8a9ad;line-height:1.4;margin-top:3px;">Vite + React · <span style="color:#faf8f3;">Bolt</span> registry · auto-synced · MIT</div>
 </div>
 
 <div style="flex:0 0 auto;display:flex;gap:8px;align-items:center;">
@@ -23,7 +23,7 @@
 </div>
 
 <p style="margin:14px 0 0 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#6b6b6b;">
-44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt-OS" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">Bolt-OS</a> · live at <a href="https://boltdocs-gogeta1232s-projects.vercel.app" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">boltdocs-gogeta1232s-projects.vercel.app</a>
+44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">Bolt</a> · live at <a href="https://boltdocs.vercel.app" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">boltdocs.vercel.app</a>
 </p>
 
 </div>
@@ -32,12 +32,12 @@
 
 <div align="center">
 
-**One registry, never hand-edited.** `commands.json` is generated from `Bolt-OS/src/commands` and pulled nightly — docs never drift.
+**One registry, never hand-edited.** `commands.json` is generated from `Bolt/src/commands` and pulled nightly — docs never drift.
 
 <p style="margin:14px 0 0 0;">
-<a href="https://boltdocs-gogeta1232s-projects.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-bolt--docs.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c" /></a>&nbsp;
+<a href="https://boltdocs.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-boltdocs.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c" /></a>&nbsp;
 <a href="https://github.com/gogeta1232/bolt-docs/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/badge/CI-passing-2ea043?style=for-the-badge&labelColor=%230c0c0d&color=%232ea043" /></a>&nbsp;
-<a href="https://github.com/gogeta1232/Bolt-OS"><img alt="Bolt-OS" src="https://img.shields.io/badge/Bolt--OS-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328" /></a>
+<a href="https://github.com/gogeta1232/Bolt"><img alt="Bolt" src="https://img.shields.io/badge/Bolt-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328" /></a>
 </p>
 
 </div>
@@ -86,7 +86,7 @@ No secrets. Static build. Override invite or GitHub link locally:
 ```bash
 cp .env.example .env.local
 # VITE_DISCORD_INVITE_URL=https://discord.com/api/oauth2/authorize?client_id=1424440972758220800&permissions=1101017476118&scope=bot%20applications.commands
-# VITE_GITHUB_URL=https://github.com/gogeta1232/Bolt-OS
+# VITE_GITHUB_URL=https://github.com/gogeta1232/Bolt
 npm run dev
 ```
 
@@ -111,10 +111,10 @@ Hardened: no `rehypeRaw`, `ReactMarkdown` `urlTransform` blocks `javascript:`/`d
 ## Sync — how it stays fresh
 
 ```
-Bolt-OS  push src/commands/** ──► npm run docs:export ──► site/src/data/commands.json ──► dispatch
+Bolt  push src/commands/** ──► npm run docs:export ──► site/src/data/commands.json ──► dispatch
                                                       │
-bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json ── nightly 03:17 UTC + on dispatch
-          └─ commit if changed ──► Vercel auto-deploys main → https://boltdocs-gogeta1232s-projects.vercel.app
+bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt/main/site/src/data/commands.json ── nightly 03:17 UTC + on dispatch
+          └─ commit if changed ──► Vercel auto-deploys main → https://boltdocs.vercel.app
 ```
 
 Manual:
@@ -122,7 +122,7 @@ Manual:
 ```bash
 npm run sync:commands
 # or
-COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json npm run sync:commands
+COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt/main/site/src/data/commands.json npm run sync:commands
 ```
 
 ## Scripts
@@ -135,11 +135,13 @@ COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/
 | `npm run lint` | `oxlint` |
 | `npm run typecheck` | `tsc -b --noEmit` |
 | `npm run format` | `prettier --write .` |
-| `npm run sync:commands` | Pull `commands.json` from `Bolt-OS` |
+| `npm run sync:commands` | Pull `commands.json` from `Bolt` |
 
-## Deploy — Vercel free, clean domain
+## Deploy — single host `boltdocs.vercel.app`
 
-**Import once:** https://vercel.com/new → Add `gogeta1232/bolt-docs` → Framework `Vite` → Build `npm run build` → Output `dist` → Env `VITE_DISCORD_INVITE_URL`, `VITE_GITHUB_URL` → Deploy.
+**Canonical:** [`https://boltdocs.vercel.app`](https://boltdocs.vercel.app) — Vercel project `boltdocs` (from `gogeta1232/bolt-docs`). One site only; `Bolt/site` is a prototype mirror.
+
+**Import once (if recreating):** https://vercel.com/new → Add `gogeta1232/bolt-docs` → Project name `boltdocs` → Framework `Vite` → Build `npm run build` → Output `dist` → Env `VITE_DISCORD_INVITE_URL`, `VITE_GITHUB_URL` → Deploy. Vercel assigns `https://boltdocs.vercel.app` automatically (alias for `boltdocs`). Manual alias if needed: Project → Settings → Domains → add `boltdocs.vercel.app`.
 
 `vercel.json` already sets:
 
@@ -153,8 +155,9 @@ No extra dashboard work — pushes to `main` deploy automatically.
 | Var | Purpose | Default |
 |-----|---------|---------|
 | `VITE_DISCORD_INVITE_URL` | Profile card **Add to Server** | `https://discord.com/api/oauth2/authorize?client_id=1424440972758220800&permissions=1101017476118&scope=bot%20applications.commands` |
-| `VITE_GITHUB_URL` | Topbar GitHub icon | `https://github.com/gogeta1232/Bolt-OS` |
+| `VITE_GITHUB_URL` | Topbar GitHub icon | `https://github.com/gogeta1232/Bolt` |
 | `VITE_GITHUB_DOCS_URL` | Footer link | `https://github.com/gogeta1232/bolt-docs` |
+| `VITE_SITE_URL` | Canonical URL | `https://boltdocs.vercel.app` |
 
 See `.env.example`. Do not commit `.env.local`.
 
@@ -168,8 +171,8 @@ See `.env.example`. Do not commit `.env.local`.
 ## License
 
 MIT — [LICENSE.md](LICENSE.md).  
-Bolt bot itself is [Elastic License 2.0](https://github.com/gogeta1232/Bolt-OS/blob/main/LICENSE.md) — source-available, not OSI open source.
+Bolt bot itself is [Elastic License 2.0](https://github.com/gogeta1232/Bolt/blob/main/LICENSE.md) — source-available, not OSI open source.
 
 <p align="center" style="margin-top:28px;">
-<sub style="color:#6b6b6b;">bolt-docs — Vite · React · Tailwind · <a href="https://github.com/gogeta1232/Bolt-OS" style="color:#6b6b6b;">Bolt-OS</a> · MIT</sub>
+<sub style="color:#6b6b6b;">bolt-docs — Vite · React · Tailwind · <a href="https://github.com/gogeta1232/Bolt" style="color:#6b6b6b;">Bolt</a> · MIT</sub>
 </p>

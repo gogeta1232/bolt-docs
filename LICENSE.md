@@ -22,4 +22,4 @@ SOFTWARE.
 
 ---
 
-Bolt bot (`Bolt-OS`) is licensed under Elastic License 2.0 — see [gogeta1232/Bolt-OS](https://github.com/gogeta1232/Bolt-OS). This repository (*bolt-docs*) is the docs site only.
+Bolt bot (`Bolt`) is licensed under Elastic License 2.0 — see [gogeta1232/Bolt](https://github.com/gogeta1232/Bolt). This repository (*bolt-docs*) is the docs site only.

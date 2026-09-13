@@ -1,7 +1,7 @@
 {
   "name": "bolt-docs",
   "version": "1.0.0",
-  "description": "Documentation site for Bolt — Discord moderation bot. Vite + React, auto-synced from Bolt-OS.",
+  "description": "Documentation site for Bolt — Discord moderation bot. Vite + React, auto-synced from Bolt.",
   "private": false,
   "license": "MIT",
   "homepage": "https://github.com/gogeta1232/bolt-docs#readme",

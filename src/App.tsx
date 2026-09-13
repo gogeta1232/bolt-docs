@@ -62,7 +62,7 @@ function Shell(): React.JSX.Element {
         </main>
         <footer className="border-t border-(--bolt-line) px-4 py-6 pb-24 md:pb-6">
           <p className="mx-auto max-w-6xl text-sm text-(--bolt-faint)">
-            Bolt docs · generated from <a href="https://github.com/gogeta1232/Bolt-OS" target="_blank" rel="noopener noreferrer" className="font-semibold text-(--bolt-muted) underline underline-offset-4">Bolt-OS</a> ·{' '}
+            Bolt docs · generated from <a href="https://github.com/gogeta1232/Bolt" target="_blank" rel="noopener noreferrer" className="font-semibold text-(--bolt-muted) underline underline-offset-4">Bolt</a> ·{' '}
             <a
               href="https://github.com/gogeta1232/bolt-docs"
               target="_blank"
