@@ -8,23 +8,29 @@ import { cn } from '../components/ui/utils';
 import { MODULES, commandData } from '../lib/commands/taxonomy';
 import { GUIDES } from '../lib/guides';
 
-const LADDER = ['Warn', 'Mute', 'Timeout', 'Kick', 'Ban'];
+const LADDER = [
+  { label: 'Warn', detail: 'Writes a numbered case.' },
+  { label: 'Mute', detail: 'Holds the channel, logs reason.' },
+  { label: 'Timeout', detail: 'Rechecks hierarchy live.' },
+  { label: 'Kick', detail: 'Removes, keeps evidence.' },
+  { label: 'Ban', detail: 'Blocks and files the case.' }
+];
 
 export function HomePage(): React.JSX.Element {
   const modules = new Set(commandData.commands.map((c) => c.module)).size;
 
   return (
     <div>
-      {/* Hero: asymmetric 12-col, left-aligned. Profile card owns the banner. */}
+      {/* Hero: asymmetric 12-col — spec plate is the inventory tag for a moderation machine. */}
       <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 pt-10 pb-10 md:pt-14 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <p className="bolt-enter inline-flex flex-wrap items-center gap-2">
             <span className="inline-flex min-h-[32px] items-center gap-2 rounded-full border border-(--bolt-line) bg-(--bolt-surface) px-3 py-1 text-[13px] font-medium text-(--bolt-muted)">
               <span className="size-2 shrink-0 rounded-full bg-green-500" aria-hidden="true" />
-              Online · Slash + prefix
+              Online
             </span>
             <span className="inline-flex min-h-[32px] items-center rounded-full bg-(--bolt-surface-hover) px-3 py-1 font-mono text-[12px] text-(--bolt-muted)">
-              {commandData.defaultPrefix}help
+              {commandData.defaultPrefix}help · slash + prefix
             </span>
           </p>
 
@@ -35,28 +41,26 @@ export function HomePage(): React.JSX.Element {
             Bolt — Discord moderation bot
           </p>
           <h1
-            className="bolt-enter mt-2 font-display text-[2.75rem] leading-[1.02] font-bold tracking-tight text-balance text-(--bolt-ink) md:text-6xl"
+            className="bolt-enter mt-2 font-display text-[2.7rem] leading-[0.98] font-bold tracking-[-0.03em] text-balance text-(--bolt-ink) md:text-[3.75rem]"
             style={{ animationDelay: '80ms' }}
           >
             Calm moderation.
             <br />
             Sharp defaults.
           </h1>
+          <div className="bolt-enter bolt-headline-rule" style={{ animationDelay: '100ms' }} aria-hidden="true" />
           <p
-            className="bolt-enter mt-4 max-w-[52ch] text-lg leading-relaxed text-(--bolt-muted)"
+            className="bolt-enter mt-4 max-w-[50ch] text-[17px] leading-relaxed text-(--bolt-muted)"
             style={{ animationDelay: '120ms' }}
           >
-            Warn, restrain, remove — every step rechecks membership, roles and hierarchy at execution time and writes a
+            Warn, mute, timeout, kick or ban — Bolt rechecks roles and hierarchy when the action runs and files a
             numbered case with evidence.
           </p>
 
           <div className="bolt-enter mt-6 flex flex-wrap items-center gap-3" style={{ animationDelay: '160ms' }}>
             <Link
               to="/commands"
-              className={cn(
-                buttonVariants({ variant: 'primary', size: 'md' }),
-                'group h-13 rounded-full px-7 text-[15px]'
-              )}
+              className={cn(buttonVariants({ variant: 'primary', size: 'md' }), 'group h-13 rounded-full px-7 text-[15px]')}
             >
               Browse commands
               <ArrowRight
@@ -76,30 +80,49 @@ export function HomePage(): React.JSX.Element {
             </Link>
           </div>
 
-          <dl
-            className="bolt-enter mt-8 grid max-w-md grid-cols-3 divide-x divide-(--bolt-line) border-y border-(--bolt-line)"
+          {/* Stamped spec plate — single source for inventory. Replaces big-number hero. */}
+          <div
+            className="bolt-enter bolt-spec-plate mt-8"
             style={{ animationDelay: '200ms' }}
+            aria-label={`Bolt spec: ${commandData.count} commands, ${modules} modules, ${GUIDES.length} guides`}
           >
-            <Stat value={String(commandData.count)} label="Commands" />
-            <Stat value={String(modules)} label="Modules" />
-            <Stat value={String(GUIDES.length)} label="Guides" />
-          </dl>
+            <span className="bolt-spec-rivet tl" aria-hidden="true" />
+            <span className="bolt-spec-rivet tr" aria-hidden="true" />
+            <span className="bolt-spec-rivet bl" aria-hidden="true" />
+            <span className="bolt-spec-rivet br" aria-hidden="true" />
+            <div className="bolt-spec-cell">
+              <span className="bolt-spec-kicker">Commands</span>
+              <span className="bolt-spec-value">{commandData.count}</span>
+              <span className="bolt-spec-meta">each writes a case</span>
+            </div>
+            <div className="bolt-spec-cell">
+              <span className="bolt-spec-kicker">Modules</span>
+              <span className="bolt-spec-value">{modules}</span>
+              <span className="bolt-spec-meta">moderation → permissions</span>
+            </div>
+            <div className="bolt-spec-cell">
+              <span className="bolt-spec-kicker">Guides</span>
+              <span className="bolt-spec-value">{GUIDES.length}</span>
+              <span className="bolt-spec-meta">written from source</span>
+            </div>
+          </div>
 
           <figure
             className="bolt-enter mt-6 overflow-hidden rounded-xl border border-(--bolt-line) bg-(--bolt-surface)"
             style={{ animationDelay: '240ms' }}
             aria-label="Example moderation command"
           >
-            <figcaption className="flex items-center gap-2 border-b border-(--bolt-line) px-4 py-2.5 text-[13px] font-medium text-(--bolt-muted)">
+            <figcaption className="flex items-center gap-2 border-b border-(--bolt-line) bg-(--bolt-surface-hover)/60 px-4 py-2.5 text-[13px] font-medium text-(--bolt-muted)">
               <TerminalSquare size={16} aria-hidden="true" className="text-(--bolt-action-strong)" />
               Try it in your server
+              <span className="ms-auto font-mono text-[11px] tracking-wide text-(--bolt-faint) uppercase">Evidence logged</span>
             </figcaption>
             <div className="space-y-1.5 px-4 py-3.5 font-mono text-[13px] leading-6">
               <p className="text-(--bolt-ink)">
                 <span className="text-(--bolt-faint)">!</span>warn @rini spam
               </p>
               <p className="text-(--bolt-muted)">
-                <span className="text-green-600">✓</span> case #42 written · evidence attached · /cases @rini
+                <span className="text-green-600">✓</span> case #42 filed · evidence attached · /cases @rini
               </p>
             </div>
           </figure>
@@ -109,7 +132,7 @@ export function HomePage(): React.JSX.Element {
           <div className="max-w-[360px]">
             <DiscordProfileCard />
           </div>
-          <p className="mt-4 font-mono text-[11px] tracking-wider text-(--bolt-faint) uppercase">
+          <p className="mt-3 max-w-[360px] text-center font-mono text-[11px] tracking-wider text-(--bolt-faint) uppercase">
             Free · Self-hosted · No signup
           </p>
         </div>
@@ -119,25 +142,28 @@ export function HomePage(): React.JSX.Element {
         <SectionHeading
           eyebrow="Registry"
           title="What Bolt can do"
-          copy={`${commandData.count} commands across ${modules} modules. Pick a lane.`}
+          copy="Four lanes. Each entry lists permissions and invocation up front — no guessing."
           linkTo="/commands"
           linkLabel="Open registry"
         />
-        <div className="mt-2 border-b border-(--bolt-line)">
+        <div className="mt-6">
           {MODULES.map((m, i) => (
             <Link
               key={m.id}
               to={`/commands?module=${m.id}`}
-              className="bolt-enter group grid grid-cols-[auto_1fr_auto] items-center gap-x-4 gap-y-1 border-t border-(--bolt-line) py-5 outline-none lg:grid-cols-[64px_220px_1fr_auto]"
+              className="bolt-enter bolt-registry-row group outline-none"
               style={{ animationDelay: `${i * 50}ms` }}
             >
-              <span className="font-mono text-xs text-(--bolt-action-strong)">0{i + 1}</span>
-              <span className="font-display text-xl font-bold tracking-tight text-(--bolt-ink)">{m.label}</span>
-              <span className="col-span-3 text-[15px] leading-relaxed text-(--bolt-muted) lg:col-span-1">
-                {m.blurb}
-              </span>
-              <span className="col-start-3 row-start-1 inline-flex items-center gap-2 justify-self-end font-mono text-[12px] text-(--bolt-muted) lg:col-start-4 lg:row-start-auto">
-                {commandData.commands.filter((c) => c.module === m.id).length} cmds
+              <span className="font-mono text-xs tracking-wide text-(--bolt-action-strong)">0{i + 1}</span>
+              <span className="font-display text-[1.25rem] font-bold tracking-tight text-(--bolt-ink)">{m.label}</span>
+              <span className="col-span-3 text-[15px] leading-relaxed text-(--bolt-muted) lg:col-span-1">{m.blurb}</span>
+              <span className="col-start-3 row-start-1 inline-flex items-center gap-2 justify-self-end font-mono text-[11px] tracking-wide text-(--bolt-muted) lg:col-start-4 lg:row-start-auto">
+                <span className="hidden rounded-full bg-(--bolt-surface-hover) px-2 py-1 sm:inline-flex">
+                  {commandData.commands.filter((c) => c.module === m.id).length} cmds
+                </span>
+                <span className="inline-flex sm:hidden">
+                  {commandData.commands.filter((c) => c.module === m.id).length} cmds
+                </span>
                 <ArrowUpRight
                   size={16}
                   aria-hidden="true"
@@ -154,21 +180,25 @@ export function HomePage(): React.JSX.Element {
           <SectionHeading
             eyebrow="Workflow"
             title="Warn, restrain, remove"
-            copy="Escalation with receipts. Authority is rechecked when the action runs, not when the menu opened."
+            copy="Escalation with receipts. Bolt checks authority when the action runs, not when the menu opened."
             linkTo="/guides/moderation-workflow"
             linkLabel="Read the workflow"
           />
-          <ol className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-(--bolt-line) bg-(--bolt-line) sm:grid-cols-3 lg:grid-cols-5">
+          <ol className="bolt-ladder mt-6 grid gap-px overflow-hidden rounded-2xl border border-(--bolt-line) bg-(--bolt-line) sm:grid-cols-3 lg:grid-cols-5">
             {LADDER.map((step, i) => (
-              <li key={step} className="bolt-enter bg-(--bolt-bg) p-5" style={{ animationDelay: `${i * 50}ms` }}>
-                <p className="font-mono text-xs text-(--bolt-action-strong)">0{i + 1}</p>
-                <p className="mt-1 font-display text-[17px] font-bold text-(--bolt-ink)">{step}</p>
-                <p className="mt-1 text-[13px] leading-relaxed text-(--bolt-muted)">
-                  {i < 2 ? 'Logged with reason.' : i < 4 ? 'Hierarchy checked.' : 'Evidence attached.'}
-                </p>
+              <li
+                key={step.label}
+                className="bolt-enter relative bg-(--bolt-bg) p-5"
+                style={{ animationDelay: `${i * 50}ms` }}
+              >
+                <span className="absolute top-4 right-4 size-2 rounded-full bg-(--bolt-attention) sm:hidden" aria-hidden="true" />
+                <p className="font-mono text-xs font-medium tracking-wide text-(--bolt-action-strong)">0{i + 1}</p>
+                <p className="mt-1 font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">{step.label}</p>
+                <p className="mt-1 text-[13px] leading-relaxed text-(--bolt-muted)">{step.detail}</p>
               </li>
             ))}
           </ol>
+          <p className="mt-3 font-mono text-[11px] tracking-wide text-(--bolt-faint)">Each step rechecks membership, roles and hierarchy.</p>
         </div>
       </section>
 
@@ -186,59 +216,49 @@ export function HomePage(): React.JSX.Element {
             </div>
           </div>
           <div className="divide-y divide-(--bolt-line) border-y border-(--bolt-line) lg:col-span-8">
-            <div className="flex gap-4 py-5">
+            <div className="flex gap-4 py-6">
               <ShieldCheck size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-(--bolt-action-strong)" />
               <div>
-                <h3 className="font-display text-lg font-bold text-(--bolt-ink)">Current permissions</h3>
+                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">Permissions rechecked at execution</h3>
                 <p className="mt-1 max-w-[52ch] text-[15px] leading-relaxed text-(--bolt-muted)">
-                  Every action rechecks membership, configured roles and hierarchy at execution time.
+                  Every action verifies membership, configured roles and hierarchy right before it runs.
                 </p>
               </div>
             </div>
-            <div className="flex gap-4 py-5">
+            <div className="flex gap-4 py-6">
               <p
-                className="w-5 shrink-0 text-center font-mono text-xl font-medium text-(--bolt-action-strong)"
+                className="grid size-5 shrink-0 place-items-center rounded-full bg-(--bolt-attention) font-mono text-[11px] font-bold text-(--bolt-ink)"
                 aria-hidden="true"
               >
                 /
               </p>
               <div>
-                <h3 className="font-display text-lg font-bold text-(--bolt-ink)">Slash + prefix</h3>
+                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">Slash and prefix</h3>
                 <p className="mt-1 max-w-[52ch] text-[15px] leading-relaxed text-(--bolt-muted)">
-                  Slash for discoverability, prefix for speed. Per-server prefix via{' '}
-                  <code className="font-mono">/setprefix</code>.
+                  Slash for discovery, prefix for speed. Change the prefix per server with <code className="rounded bg-(--bolt-surface-hover) px-1.5 py-0.5 font-mono text-[13px]">/setprefix</code>.
                 </p>
               </div>
             </div>
-            <div className="flex gap-4 py-5">
+            <div className="flex gap-4 py-6">
               <p
-                className="w-5 shrink-0 text-center font-display text-xl font-bold text-(--bolt-ink)"
+                className="grid size-5 shrink-0 place-items-center rounded-full border border-(--bolt-line) bg-(--bolt-surface) font-mono text-[11px] font-bold text-(--bolt-ink)"
                 aria-hidden="true"
               >
                 {GUIDES.length}
               </p>
               <div>
-                <h3 className="font-display text-lg font-bold text-(--bolt-ink)">Guides from source</h3>
+                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">Guides written from source</h3>
                 <p className="mt-1 max-w-[52ch] text-[15px] leading-relaxed text-(--bolt-muted)">
-                  Setup, permissions, workflows and internals — written from the code, not marketing.
+                  Setup, permissions, workflows and internals — documented from the code, not from marketing.
                 </p>
                 <p className="mt-3">
-                  <Badge variant="accent">{commandData.defaultPrefix}prefix supported everywhere</Badge>
+                  <Badge variant="accent">Prefix works everywhere slash does</Badge>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }): React.JSX.Element {
-  return (
-    <div className="px-4 py-3 text-left first:pl-0">
-      <dd className="font-display text-2xl font-bold text-(--bolt-ink) tabular-nums">{value}</dd>
-      <dt className="mt-0.5 text-[11px] font-medium tracking-[0.14em] text-(--bolt-faint) uppercase">{label}</dt>
     </div>
   );
 }
@@ -259,14 +279,12 @@ function SectionHeading({
   return (
     <div className="max-w-[60ch] text-left">
       <p className="font-mono text-xs font-medium tracking-[0.18em] text-(--bolt-action-strong) uppercase">{eyebrow}</p>
-      <h2 className="mt-1 font-display text-[1.75rem] leading-tight font-bold tracking-tight text-(--bolt-ink)">
-        {title}
-      </h2>
+      <h2 className="mt-1 font-display text-[1.75rem] leading-tight font-bold tracking-[-0.02em] text-(--bolt-ink)">{title}</h2>
       <p className="mt-1.5 text-[15px] leading-relaxed text-(--bolt-muted)">{copy}</p>
       <p className="mt-3">
         <Link
           to={linkTo}
-          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-(--bolt-action-strong)"
+          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-(--bolt-action-strong) hover:text-(--bolt-action-hover)"
         >
           {linkLabel}
           <ArrowRight

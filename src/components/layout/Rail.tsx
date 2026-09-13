@@ -219,16 +219,15 @@ export function Rail({ collapsed, onToggle }: { collapsed: boolean; onToggle: ()
         }
         .bolt-rail-glow {
           position: absolute; left: -8px; top: 0; bottom: 0;
-          width: 1px; border-radius: 999px; pointer-events: none;
+          width: 1.5px; border-radius: 999px; pointer-events: none;
           transform-origin: top;
           background: linear-gradient(
             to bottom,
             transparent,
-            color-mix(in srgb, var(--bolt-action) 60%, transparent) 25%,
-            color-mix(in srgb, var(--bolt-action) 60%, transparent) 75%,
+            color-mix(in srgb, var(--bolt-action) 34%, transparent) 28%,
+            color-mix(in srgb, var(--bolt-action) 34%, transparent) 72%,
             transparent
           );
-          box-shadow: 0 0 10px 0 color-mix(in srgb, var(--bolt-action) 25%, transparent);
           opacity: 0;
         }
         .bolt-rail-glow[data-dir='up'] {

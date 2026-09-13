@@ -18,13 +18,15 @@ export function CommandsPage(): React.JSX.Element {
           <p className="font-mono text-xs font-medium tracking-[0.18em] text-(--bolt-action-strong) uppercase">
             Registry
           </p>
-          <h1 className="mt-1 font-display text-4xl font-bold tracking-tight text-(--bolt-ink)">Commands</h1>
-          <p className="mt-2 leading-relaxed text-(--bolt-muted)">
-            Every command with slash and prefix usage, options and required permissions.
+          <h1 className="mt-1 font-display text-4xl font-bold tracking-[-0.02em] text-(--bolt-ink)">Commands</h1>
+          <div className="bolt-headline-rule" aria-hidden="true" />
+          <p className="mt-3 text-[15px] leading-relaxed text-(--bolt-muted)">
+            Every command — slash and prefix, options and the exact permission it needs.
           </p>
         </div>
-        <p className="inline-flex min-h-[32px] items-center rounded-full bg-(--bolt-surface-hover) px-3 py-1 font-mono text-[12px] text-(--bolt-muted)">
-          {commandData.count} commands
+        <p className="inline-flex min-h-[32px] items-center rounded-full border border-(--bolt-line) bg-(--bolt-surface) px-3 py-1 font-mono text-xs tracking-wide text-(--bolt-muted)">
+          <span className="size-1.5 rounded-full bg-(--bolt-attention) me-2" aria-hidden="true" />
+          {commandData.count} commands · {commandData.defaultPrefix}prefix
         </p>
       </div>
       <div className="mt-6">

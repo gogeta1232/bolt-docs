@@ -21,18 +21,19 @@ export function GuidePage(): React.JSX.Element {
     <div className="mx-auto max-w-6xl px-4 py-8">
       <Link
         to="/guides"
-        className="bolt-fade inline-flex min-h-[44px] items-center gap-1.5 rounded-xl text-sm font-semibold text-(--bolt-muted) hover:text-(--bolt-ink)"
+        className="bolt-fade inline-flex min-h-[44px] items-center gap-1.5 rounded-full border border-transparent px-1 text-sm font-semibold text-(--bolt-muted) hover:bg-(--bolt-surface-hover) hover:text-(--bolt-ink)"
       >
         <ArrowLeft size={16} aria-hidden /> All guides
       </Link>
       <div className="mt-2 grid gap-8 lg:grid-cols-[1fr_220px]">
         <article className="min-w-0">
-          <p className="font-mono text-xs font-medium tracking-widest text-(--bolt-action-strong) uppercase">
+          <p className="font-mono text-xs font-medium tracking-[0.18em] text-(--bolt-action-strong) uppercase">
             {guide.section}
           </p>
-          <h1 className="mt-1 font-display text-4xl font-bold tracking-tight text-(--bolt-ink)">{guide.title}</h1>
-          <p className="mt-2 text-lg text-(--bolt-muted)">{guide.description}</p>
-          <div className="bolt-prose mt-4">
+          <h1 className="mt-1 font-display text-4xl font-bold tracking-[-0.02em] text-(--bolt-ink)">{guide.title}</h1>
+          <div className="bolt-headline-rule" aria-hidden="true" />
+          <p className="mt-3 max-w-[60ch] text-lg leading-relaxed text-(--bolt-muted)">{guide.description}</p>
+          <div className="bolt-prose mt-6">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               urlTransform={(url) => {
@@ -67,21 +68,21 @@ export function GuidePage(): React.JSX.Element {
               {guide.body}
             </ReactMarkdown>
           </div>
-          <nav aria-label="More guides" className="mt-10 grid gap-2 sm:grid-cols-2">
+          <nav aria-label="More guides" className="mt-10 grid gap-3 sm:grid-cols-2">
             {prev ? <GuidePager to={`/guides/${prev.slug}`} label="Previous" title={prev.title} /> : <span />}
             {next ? <GuidePager to={`/guides/${next.slug}`} label="Next" title={next.title} align="end" /> : <span />}
           </nav>
         </article>
         {headings.length > 0 ? (
           <aside className="hidden lg:block" aria-label="On this page">
-            <div className="sticky top-24">
-              <p className="text-xs font-semibold tracking-wide text-(--bolt-faint) uppercase">On this page</p>
-              <ul className="mt-2 space-y-1 border-l border-(--bolt-line)">
+            <div className="sticky top-24 rounded-xl border border-(--bolt-line) bg-(--bolt-surface) p-4">
+              <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-(--bolt-faint) uppercase">On this page</p>
+              <ul className="mt-3 space-y-1 border-l border-(--bolt-line)">
                 {headings.map((h) => (
                   <li key={h.id}>
                     <a
                       href={`#${h.id}`}
-                      className={`bolt-fade -ms-px block border-l-2 border-transparent py-1 text-sm text-(--bolt-muted) hover:border-(--bolt-action) hover:text-(--bolt-ink) ${
+                      className={`bolt-fade -ms-px block border-l-2 border-transparent py-1 text-sm leading-snug text-(--bolt-muted) hover:border-(--bolt-action) hover:text-(--bolt-ink) ${
                         h.level === 3 ? 'ps-6' : 'ps-3'
                       }`}
                     >
@@ -116,12 +117,12 @@ function GuidePager({
   return (
     <Link
       to={to}
-      className={`bolt-fade flex min-h-[44px] items-center gap-2 rounded-xl border border-(--bolt-line) bg-(--bolt-surface) px-4 py-2.5 text-sm hover:bg-(--bolt-surface-hover) ${align === 'end' ? 'justify-end text-right' : ''}`}
+      className={`bolt-fade flex min-h-[44px] items-center gap-2 rounded-xl border border-(--bolt-line) bg-(--bolt-surface) px-4 py-2.5 text-sm transition-colors hover:border-(--bolt-faint) hover:bg-(--bolt-surface-hover) ${align === 'end' ? 'justify-end text-right' : ''}`}
     >
       {align !== 'end' ? <ArrowLeft size={16} aria-hidden className="shrink-0 text-(--bolt-faint)" /> : null}
       <span>
-        <span className="block text-xs text-(--bolt-faint)">{label}</span>
-        <span className="block font-semibold text-(--bolt-ink)">{title}</span>
+        <span className="block font-mono text-xs tracking-wide text-(--bolt-faint)">{label}</span>
+        <span className="block font-semibold tracking-[-0.01em] text-(--bolt-ink)">{title}</span>
       </span>
       {align === 'end' ? <ArrowRight size={16} aria-hidden className="shrink-0 text-(--bolt-faint)" /> : null}
     </Link>

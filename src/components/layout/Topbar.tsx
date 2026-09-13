@@ -12,17 +12,17 @@ function GithubIcon(): React.JSX.Element {
 
 export function Topbar({ onPalette }: { onPalette: () => void }): React.JSX.Element {
   return (
-    <header className="sticky top-0 z-20 border-b border-(--bolt-line) bg-[color-mix(in_srgb,var(--bolt-bg)_88%,transparent)] backdrop-blur-xl">
+    <header className="sticky top-0 z-20 border-b border-(--bolt-line) bg-[color-mix(in_srgb,var(--bolt-bg)_90%,transparent)] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4">
         <button
           type="button"
           onClick={onPalette}
-          className="bolt-fade flex h-11 min-w-0 flex-1 cursor-pointer items-center gap-2 rounded-xl border border-(--bolt-line) bg-(--bolt-surface) px-3 text-sm text-(--bolt-faint) sm:max-w-sm"
+          className="bolt-fade flex h-10 min-w-0 flex-1 cursor-pointer items-center gap-2.5 rounded-full border border-(--bolt-line) bg-(--bolt-surface) px-3.5 text-[13.5px] font-medium tracking-[-0.01em] text-(--bolt-faint) hover:border-(--bolt-faint) hover:text-(--bolt-muted) sm:max-w-[360px]"
           aria-label="Search docs and commands (Control K)"
         >
-          <Search size={16} aria-hidden className="shrink-0" />
+          <Search size={15} aria-hidden className="shrink-0 text-(--bolt-faint)" />
           <span className="truncate">Search commands, guides…</span>
-          <kbd className="ms-auto hidden shrink-0 rounded-md border border-(--bolt-line) bg-(--bolt-surface-hover) px-1.5 py-0.5 font-mono text-[11px] sm:inline">
+          <kbd className="ms-auto hidden shrink-0 rounded-full border border-(--bolt-line) bg-(--bolt-surface-hover) px-2 py-0.5 font-mono text-[10px] tracking-wide text-(--bolt-faint) sm:inline-flex">
             Ctrl K
           </kbd>
         </button>
