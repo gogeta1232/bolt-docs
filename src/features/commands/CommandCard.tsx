@@ -20,7 +20,7 @@ export function CommandCard({ cmd, index }: { cmd: DocCommand; index: number }):
       aria-label={`/${cmd.name} — ${cmd.description}`}
     >
       <span
-        className="pointer-events-none absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-(--bolt-attention) transition-transform duration-200 group-hover:scale-x-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-(--bolt-line) opacity-60 transition-transform duration-200 group-hover:scale-x-100"
         aria-hidden="true"
       />
       <div className="flex items-center justify-between gap-3">

@@ -86,10 +86,6 @@ export function HomePage(): React.JSX.Element {
             style={{ animationDelay: '200ms' }}
             aria-label={`Bolt spec: ${commandData.count} commands, ${modules} modules, ${GUIDES.length} guides`}
           >
-            <span className="bolt-spec-rivet tl" aria-hidden="true" />
-            <span className="bolt-spec-rivet tr" aria-hidden="true" />
-            <span className="bolt-spec-rivet bl" aria-hidden="true" />
-            <span className="bolt-spec-rivet br" aria-hidden="true" />
             <div className="bolt-spec-cell">
               <span className="bolt-spec-kicker">Commands</span>
               <span className="bolt-spec-value">{commandData.count}</span>
