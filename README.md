@@ -23,7 +23,7 @@
 </div>
 
 <p style="margin:14px 0 0 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#6b6b6b;">
-44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">Bolt</a> · live at <a href="https://bolt-docs-nine.vercel.app" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">bolt-docs-nine.vercel.app</a>
+44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">Bolt</a> · live at <a href="https://boltdoc.vercel.app" style="color:#6b6b6b;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a3a3a;">boltdoc.vercel.app</a>
 </p>
 
 </div>
@@ -35,7 +35,7 @@
 **One registry, never hand-edited.** `commands.json` is generated from `Bolt/src/commands` and pulled nightly — docs never drift.
 
 <p style="margin:14px 0 0 0;">
-<a href="https://bolt-docs-nine.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-bolt--docs--nine.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c" /></a>&nbsp;
+<a href="https://boltdoc.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-boltdoc.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c" /></a>&nbsp;
 <a href="https://github.com/gogeta1232/bolt-docs/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/badge/CI-passing-2ea043?style=for-the-badge&labelColor=%230c0c0d&color=%232ea043" /></a>&nbsp;
 <a href="https://github.com/gogeta1232/Bolt"><img alt="Bolt" src="https://img.shields.io/badge/Bolt-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328" /></a>
 </p>
@@ -114,7 +114,7 @@ Hardened: no `rehypeRaw`, `ReactMarkdown` `urlTransform` blocks `javascript:`/`d
 Bolt  push src/commands/** ──► npm run docs:export ──► site/src/data/commands.json ──► dispatch
                                                       │
 bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt/main/site/src/data/commands.json ── nightly 03:17 UTC + on dispatch
-          └─ commit if changed ──► Vercel auto-deploys main → https://bolt-docs-nine.vercel.app
+          └─ commit if changed ──► Vercel auto-deploys main → https://boltdoc.vercel.app
 ```
 
 Manual:
@@ -137,13 +137,7 @@ COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt/main/site/src/dat
 | `npm run format` | `prettier --write .` |
 | `npm run sync:commands` | Pull `commands.json` from `Bolt` |
 
-## Deploy — single host (Vercel)
-
-**Canonical (Git-linked):** [`https://bolt-docs-nine.vercel.app`](https://bolt-docs-nine.vercel.app) — Vercel project `bolt-docs` (from `gogeta1232/bolt-docs`), auto-deploys on push to `main`. Aliases: `bolt-docs-gogeta1232s-projects.vercel.app`, `bolt-docs-git-main-...`. One site only; `Bolt/site` is a prototype mirror.
-
-> **Note:** `https://boltdocs.vercel.app` and `https://bolt-docs.vercel.app` are globally reserved (other projects). The cleanest available global alias for this docs site is `bolt-docs-nine.vercel.app`. To use a shorter custom domain you own (e.g. `docs.yourdomain.com`), add it in Vercel → Project `bolt-docs` → Settings → Domains.
-
-**Import once (if recreating):** https://vercel.com/new → Add `gogeta1232/bolt-docs` → Project name `bolt-docs` → Framework `Vite` → Build `npm run build` → Output `dist` → Env `VITE_DISCORD_INVITE_URL`, `VITE_GITHUB_URL` → Deploy. Vercel assigns the production alias automatically; pushes to `main` redeploy.
+## Deploy — Vercel
 
 `vercel.json` already sets:
 
@@ -159,7 +153,7 @@ No extra dashboard work — pushes to `main` deploy automatically.
 | `VITE_DISCORD_INVITE_URL` | Profile card **Add to Server** | `https://discord.com/api/oauth2/authorize?client_id=1424440972758220800&permissions=1101017476118&scope=bot%20applications.commands` |
 | `VITE_GITHUB_URL` | Topbar GitHub icon | `https://github.com/gogeta1232/Bolt` |
 | `VITE_GITHUB_DOCS_URL` | Footer link | `https://github.com/gogeta1232/bolt-docs` |
-| `VITE_SITE_URL` | Canonical URL | `https://bolt-docs-nine.vercel.app` (desired `boltdocs.vercel.app` is globally taken) |
+| `VITE_SITE_URL` | Canonical URL | `https://boltdoc.vercel.app` |
 
 See `.env.example`. Do not commit `.env.local`.
 
