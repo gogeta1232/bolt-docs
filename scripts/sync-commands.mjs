@@ -3,8 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const DEFAULT_COMMANDS_URL =
-  'https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json';
+export const DEFAULT_COMMANDS_URL = 'https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/docs/commands.json';
 const MAX_BYTES = 1_000_000;
 
 export function validateRegistry(data) {

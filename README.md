@@ -71,9 +71,9 @@ Hardened: no `rehypeRaw`, `ReactMarkdown` `urlTransform` blocks `javascript:`/`d
 ## Sync — how it stays fresh
 
 ```
-Bolt-OS push src/commands/** ──► npm run docs:export ──► site/src/data/commands.json ──► dispatch
+Bolt-OS push src/commands/** ──► npm run docs:export ──► docs/commands.json ──► dispatch
                                                       │
-bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json ── nightly 03:17 UTC + on dispatch
+bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/docs/commands.json ── nightly 03:17 UTC + on dispatch
           └─ commit if changed ──► Vercel auto-deploys main → https://boltdoc.vercel.app
 ```
 
@@ -82,7 +82,7 @@ Manual:
 ```bash
 npm run sync:commands
 # or
-COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json npm run sync:commands
+COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/docs/commands.json npm run sync:commands
 ```
 
 The command registry is fetched from public Bolt-OS, so no private-repo credential is needed. Sync requests use a 10-second deadline and a 1 MB response limit, validate command names and counts, and preserve the current registry if a request fails. Run `npm test` to check the sync behavior.

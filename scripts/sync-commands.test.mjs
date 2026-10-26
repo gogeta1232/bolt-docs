@@ -23,7 +23,7 @@ const registry = {
 const response = () => new Response(JSON.stringify(registry), { headers: { 'content-type': 'text/plain' } });
 
 test('uses the public source and bounds fetches without following redirects', async () => {
-  assert.match(DEFAULT_COMMANDS_URL, /gogeta1232\/Bolt-OS\/main/);
+  assert.match(DEFAULT_COMMANDS_URL, /gogeta1232\/Bolt-OS\/main\/docs\/commands\.json$/);
   const data = await fetchRegistry(DEFAULT_COMMANDS_URL, async (url, options) => {
     assert.equal(String(url), DEFAULT_COMMANDS_URL);
     assert.equal(options.redirect, 'error');

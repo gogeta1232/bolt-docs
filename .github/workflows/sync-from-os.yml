@@ -24,7 +24,7 @@ jobs:
       - name: Fetch commands.json from Bolt-OS
         run: npm run sync:commands
         env:
-          COMMANDS_URL: https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json
+          COMMANDS_URL: https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/docs/commands.json
       - run: npm test
       - run: npm run typecheck
       - run: npm run lint
