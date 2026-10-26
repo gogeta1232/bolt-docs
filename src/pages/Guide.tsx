@@ -54,7 +54,11 @@ export function GuidePage(): React.JSX.Element {
                   const isExternal = href?.startsWith('http');
                   if (href && /^(javascript|data|vbscript|file):/i.test(href)) return <span>{children}</span>;
                   return (
-                    <a href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined}>
+                    <a
+                      href={href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noopener noreferrer' : undefined}
+                    >
                       {children}
                     </a>
                   );
@@ -76,7 +80,9 @@ export function GuidePage(): React.JSX.Element {
         {headings.length > 0 ? (
           <aside className="hidden lg:block" aria-label="On this page">
             <div className="sticky top-24 rounded-xl border border-(--bolt-line) bg-(--bolt-surface) p-4">
-              <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-(--bolt-faint) uppercase">On this page</p>
+              <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-(--bolt-faint) uppercase">
+                On this page
+              </p>
               <ul className="mt-3 space-y-1 border-l border-(--bolt-line)">
                 {headings.map((h) => (
                   <li key={h.id}>

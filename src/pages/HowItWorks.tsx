@@ -59,7 +59,10 @@ export function HowItWorksPage(): React.JSX.Element {
             className="bolt-enter relative overflow-hidden rounded-xl border border-(--bolt-line) bg-(--bolt-surface) p-4"
             style={{ animationDelay: `${i * 50}ms` }}
           >
-            <span className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-(--bolt-attention) opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
+            <span
+              className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-(--bolt-attention) opacity-0 transition-opacity group-hover:opacity-100"
+              aria-hidden="true"
+            />
             <p className="font-mono text-xs font-medium tracking-wide text-(--bolt-action-strong)">{s.n}</p>
             <p className="mt-1 font-display text-[15px] font-bold tracking-tight text-(--bolt-ink)">{s.title}</p>
             <p className="mt-1.5 text-sm leading-relaxed text-(--bolt-muted)">{s.body}</p>
@@ -68,7 +71,9 @@ export function HowItWorksPage(): React.JSX.Element {
       </ol>
 
       <h2 className="mt-10 font-display text-xl font-bold tracking-tight text-(--bolt-ink)">Three permission layers</h2>
-      <p className="mt-1 text-sm text-(--bolt-faint)">Each layer must pass. Authority is rechecked when the action runs.</p>
+      <p className="mt-1 text-sm text-(--bolt-faint)">
+        Each layer must pass. Authority is rechecked when the action runs.
+      </p>
       <div className="mt-3 grid gap-3 md:grid-cols-3">
         {LAYERS.map((l, i) => (
           <Card key={l.title} className="bolt-enter border-(--bolt-line)" style={{ animationDelay: `${i * 60}ms` }}>

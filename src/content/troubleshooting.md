@@ -2,4 +2,6 @@
 - `This command can only be used in a server.` — command ran in DMs; most commands require `GUILD_ANY`.
 - Bot cannot ban/kick/mute — move Bolt's role above the target, grant `BanMembers` / `KickMembers` / `ManageRoles`.
 - Logs not arriving — run `/setup`, confirm `SendMessages` + `EmbedLinks` in the log channel.
+- Message logs omit Bolt's own messages and empty uncached deletions intentionally. Automatic link previews and media-loading updates do not count as member edits.
+- Repeated autoresponder triggers — adding the same trigger offers an overwrite confirmation. An identical response is left unchanged.
 - Prefix ignored — check `GuildConfig.prefix` and `noPrefixMode`; DMs fall back to default `!`.

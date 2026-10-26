@@ -8,13 +8,13 @@
   Vite + React · Bolt registry · auto-synced · MIT<br>
   <a href="#license"><img alt="MIT" src="https://img.shields.io/badge/MIT-f7b626?style=flat-square&labelColor=0c0c0d&color=f7b626"></a>
   <a href="#what-lives-here"><img alt="vite 8 · react 19" src="https://img.shields.io/badge/vite%208%20%C2%B7%20react%2019-2a2a2a?style=flat-square&labelColor=0c0c0d&color=2a2a2a"></a><br>
-  <sub>44 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt">Bolt</a> · live at <a href="https://boltdoc.vercel.app">boltdoc.vercel.app</a></sub>
+  <sub>42 commands · 11 guides · synced from <a href="https://github.com/gogeta1232/Bolt-OS">Bolt</a> · live at <a href="https://boltdoc.vercel.app">boltdoc.vercel.app</a></sub>
 </p>
 
 <p align="center">
   <a href="https://boltdoc.vercel.app"><img alt="Live" src="https://img.shields.io/badge/LIVE-boltdoc.vercel.app-ff482c?style=for-the-badge&labelColor=%230c0c0d&color=%23ff482c"></a>&nbsp;
   <a href="https://github.com/gogeta1232/bolt-docs/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/badge/CI-passing-2ea043?style=for-the-badge&labelColor=%230c0c0d&color=%232ea043"></a>&nbsp;
-  <a href="https://github.com/gogeta1232/Bolt"><img alt="Bolt" src="https://img.shields.io/badge/Bolt-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328"></a>
+  <a href="https://github.com/gogeta1232/Bolt-OS"><img alt="Bolt" src="https://img.shields.io/badge/Bolt-source-1f2328?style=for-the-badge&labelColor=%230c0c0d&color=%231f2328"></a>
 </p>
 
 <p align="center">
@@ -25,9 +25,9 @@
 
 ### Inventory at a glance
 
-| COMMANDS | GUIDES | SYNC | STACK |
-|---|---|---|---|
-| **44**<br><sub>searchable · slash + prefix</sub> | **11**<br><sub>markdown · from source</sub> | **nightly**<br><sub>+ on push dispatch</sub> | **vite 8**<br><sub>react 19 · ts 6</sub> |
+| COMMANDS                                         | GUIDES                                      | SYNC                                         | STACK                                    |
+| ------------------------------------------------ | ------------------------------------------- | -------------------------------------------- | ---------------------------------------- |
+| **42**<br><sub>searchable · slash + prefix</sub> | **11**<br><sub>markdown · from source</sub> | **nightly**<br><sub>+ on push dispatch</sub> | **vite 8**<br><sub>react 19 · ts 6</sub> |
 
 > Isolated `Vite` site — no bot runtime inside. Reads `src/data/commands.json` only.
 
@@ -46,7 +46,7 @@ No secrets. Static build. Override invite or GitHub link locally:
 ```bash
 cp .env.example .env.local
 # VITE_DISCORD_INVITE_URL=https://discord.com/api/oauth2/authorize?client_id=1424440972758220800&permissions=1101017476118&scope=bot%20applications.commands
-# VITE_GITHUB_URL=https://github.com/gogeta1232/Bolt
+# VITE_GITHUB_URL=https://github.com/gogeta1232/Bolt-OS
 npm run dev
 ```
 
@@ -71,9 +71,9 @@ Hardened: no `rehypeRaw`, `ReactMarkdown` `urlTransform` blocks `javascript:`/`d
 ## Sync — how it stays fresh
 
 ```
-Bolt  push src/commands/** ──► npm run docs:export ──► site/src/data/commands.json ──► dispatch
+Bolt-OS push src/commands/** ──► npm run docs:export ──► site/src/data/commands.json ──► dispatch
                                                       │
-bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt/main/site/src/data/commands.json ── nightly 03:17 UTC + on dispatch
+bolt-docs  ◄──────── fetch https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json ── nightly 03:17 UTC + on dispatch
           └─ commit if changed ──► Vercel auto-deploys main → https://boltdoc.vercel.app
 ```
 
@@ -82,20 +82,22 @@ Manual:
 ```bash
 npm run sync:commands
 # or
-COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt/main/site/src/data/commands.json npm run sync:commands
+COMMANDS_URL=https://raw.githubusercontent.com/gogeta1232/Bolt-OS/main/site/src/data/commands.json npm run sync:commands
 ```
+
+The command registry is fetched from public Bolt-OS, so no private-repo credential is needed. Sync requests use a 10-second deadline and a 1 MB response limit, validate command names and counts, and preserve the current registry if a request fails. Run `npm test` to check the sync behavior.
 
 ## Scripts
 
-| Command | What it does |
-|---------|--------------|
-| `npm run dev` | Vite dev — `localhost:5173` |
-| `npm run build` | `tsc -b && vite build && copy dist/index.html → dist/404.html` |
-| `npm run preview` | Preview `dist/` |
-| `npm run lint` | `oxlint` |
-| `npm run typecheck` | `tsc -b --noEmit` |
-| `npm run format` | `prettier --write .` |
-| `npm run sync:commands` | Pull `commands.json` from `Bolt` |
+| Command                 | What it does                                                   |
+| ----------------------- | -------------------------------------------------------------- |
+| `npm run dev`           | Vite dev — `localhost:5173`                                    |
+| `npm run build`         | `tsc -b && vite build && copy dist/index.html → dist/404.html` |
+| `npm run preview`       | Preview `dist/`                                                |
+| `npm run lint`          | `oxlint`                                                       |
+| `npm run typecheck`     | `tsc -b --noEmit`                                              |
+| `npm run format`        | `prettier --write .`                                           |
+| `npm run sync:commands` | Pull `commands.json` from `Bolt`                               |
 
 ## Deploy — Vercel
 
@@ -108,12 +110,12 @@ No extra dashboard work — pushes to `main` deploy automatically.
 
 ## Environment
 
-| Var | Purpose | Default |
-|-----|---------|---------|
+| Var                       | Purpose                        | Default                                                                                                                              |
+| ------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `VITE_DISCORD_INVITE_URL` | Profile card **Add to Server** | `https://discord.com/api/oauth2/authorize?client_id=1424440972758220800&permissions=1101017476118&scope=bot%20applications.commands` |
-| `VITE_GITHUB_URL` | Topbar GitHub icon | `https://github.com/gogeta1232/Bolt` |
-| `VITE_GITHUB_DOCS_URL` | Footer link | `https://github.com/gogeta1232/bolt-docs` |
-| `VITE_SITE_URL` | Canonical URL | `https://boltdoc.vercel.app` |
+| `VITE_GITHUB_URL`         | Topbar GitHub icon             | `https://github.com/gogeta1232/Bolt-OS`                                                                                              |
+| `VITE_GITHUB_DOCS_URL`    | Footer link                    | `https://github.com/gogeta1232/bolt-docs`                                                                                            |
+| `VITE_SITE_URL`           | Canonical URL                  | `https://boltdoc.vercel.app`                                                                                                         |
 
 See `.env.example`. Do not commit `.env.local`.
 
@@ -127,8 +129,8 @@ See `.env.example`. Do not commit `.env.local`.
 ## License
 
 MIT — [LICENSE.md](LICENSE.md).  
-Bolt bot itself is [Elastic License 2.0](https://github.com/gogeta1232/Bolt/blob/main/LICENSE.md) — source-available, not OSI open source.
+Bolt bot itself is [Elastic License 2.0](https://github.com/gogeta1232/Bolt-OS/blob/main/LICENSE.md) — source-available, not OSI open source.
 
 <p align="center">
-<sub>bolt-docs — Vite · React · Tailwind · <a href="https://github.com/gogeta1232/Bolt">Bolt</a> · MIT</sub>
+<sub>bolt-docs — Vite · React · Tailwind · <a href="https://github.com/gogeta1232/Bolt-OS">Bolt</a> · MIT</sub>
 </p>

@@ -1,3 +1,3 @@
-Order in `src/index.ts`: validate env (`src/config/env.ts`), build `BotClient` (`src/config/bot.ts`), `configureContainer` (`src/setup/container.ts`), `database.connect` + `muteScheduler.initialize`, `client.login`, then on ready initialize reactions, snipes and cases.
+Bolt loads an optional `.env` file using Node before validating the environment. Existing host environment variables take priority. It then constructs the client and services, connects to MongoDB, restores mute schedules, starts the health endpoint and logs in to Discord. Reactions, snipes, cases and pending greeting deletions initialize when Discord is ready.
 
-Slash commands register globally via `registerApplicationCommands` with `Overwrite` behavior. Health is checked by `src/lib/command-registration.ts` and served at `GET /health` from `src/server/express.ts` with MongoDB readiness.
+Slash commands register through Sapphire's `registerApplicationCommands`. The command registry is checked after login. `GET /health` reports MongoDB readiness; it does not confirm the Discord gateway connection. Check the runtime logs for `Bot ready` when diagnosing an offline bot.

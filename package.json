@@ -1,7 +1,7 @@
 {
   "name": "bolt-docs",
   "version": "1.0.0",
-  "description": "Documentation site for Bolt — Discord moderation bot. Vite + React, auto-synced from Bolt.",
+  "description": "Documentation site for Bolt \u00e2\u20ac\u201d Discord moderation bot. Vite + React, auto-synced from Bolt.",
   "private": false,
   "license": "MIT",
   "homepage": "https://github.com/gogeta1232/bolt-docs#readme",
@@ -21,7 +21,8 @@
     "typecheck": "tsc -b --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "sync:commands": "node scripts/sync-commands.mjs"
+    "sync:commands": "node scripts/sync-commands.mjs",
+    "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.3.0",
@@ -46,7 +47,8 @@
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
     "typescript": "~6.0.2",
-    "vite": "^8.3.0"
+    "vite": "^8.3.0",
+    "prettier": "3.9.10"
   },
   "engines": {
     "node": ">=20.19.0"

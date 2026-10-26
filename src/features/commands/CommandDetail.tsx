@@ -98,10 +98,15 @@ export function CommandDetailPage(): React.JSX.Element {
       ) : null}
 
       {cmd.requiredClientPermissions.length > 0 ? (
-        <section aria-label="Bot permissions" className="mt-6 rounded-xl border border-(--bolt-line) bg-(--bolt-surface) p-4">
+        <section
+          aria-label="Bot permissions"
+          className="mt-6 rounded-xl border border-(--bolt-line) bg-(--bolt-surface) p-4"
+        >
           <h2 className="font-display text-sm font-bold tracking-tight text-(--bolt-ink)">Bot needs</h2>
           <p className="mt-1 font-mono text-sm text-(--bolt-muted)">{cmd.requiredClientPermissions.join(' · ')}</p>
-          <p className="mt-1 text-xs leading-relaxed text-(--bolt-faint)">Checked in the channel before Bolt runs the command.</p>
+          <p className="mt-1 text-xs leading-relaxed text-(--bolt-faint)">
+            Checked in the channel before Bolt runs the command.
+          </p>
         </section>
       ) : null}
 

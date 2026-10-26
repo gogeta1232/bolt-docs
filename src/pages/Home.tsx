@@ -60,7 +60,10 @@ export function HomePage(): React.JSX.Element {
           <div className="bolt-enter mt-6 flex flex-wrap items-center gap-3" style={{ animationDelay: '160ms' }}>
             <Link
               to="/commands"
-              className={cn(buttonVariants({ variant: 'primary', size: 'md' }), 'group h-13 rounded-full px-7 text-[15px]')}
+              className={cn(
+                buttonVariants({ variant: 'primary', size: 'md' }),
+                'group h-13 rounded-full px-7 text-[15px]'
+              )}
             >
               Browse commands
               <ArrowRight
@@ -98,7 +101,9 @@ export function HomePage(): React.JSX.Element {
             <figcaption className="flex items-center gap-2 border-b border-(--bolt-line) bg-(--bolt-surface-hover)/60 px-4 py-2.5 text-[13px] font-medium text-(--bolt-muted)">
               <TerminalSquare size={16} aria-hidden="true" className="text-(--bolt-action-strong)" />
               Try it in your server
-              <span className="ms-auto font-mono text-[11px] tracking-wide text-(--bolt-faint) uppercase">Evidence logged</span>
+              <span className="ms-auto font-mono text-[11px] tracking-wide text-(--bolt-faint) uppercase">
+                Evidence logged
+              </span>
             </figcaption>
             <div className="space-y-1.5 px-4 py-3.5 font-mono text-[13px] leading-6">
               <p className="text-(--bolt-ink)">
@@ -139,7 +144,9 @@ export function HomePage(): React.JSX.Element {
             >
               <span className="font-mono text-xs tracking-wide text-(--bolt-action-strong)">0{i + 1}</span>
               <span className="font-display text-[1.25rem] font-bold tracking-tight text-(--bolt-ink)">{m.label}</span>
-              <span className="col-span-3 text-[15px] leading-relaxed text-(--bolt-muted) lg:col-span-1">{m.blurb}</span>
+              <span className="col-span-3 text-[15px] leading-relaxed text-(--bolt-muted) lg:col-span-1">
+                {m.blurb}
+              </span>
               <span className="col-start-3 row-start-1 inline-flex items-center gap-2 justify-self-end font-mono text-[11px] tracking-wide text-(--bolt-muted) lg:col-start-4 lg:row-start-auto">
                 <span className="hidden rounded-full bg-(--bolt-surface-hover) px-2 py-1 sm:inline-flex">
                   {commandData.commands.filter((c) => c.module === m.id).length} cmds
@@ -174,14 +181,19 @@ export function HomePage(): React.JSX.Element {
                 className="bolt-enter relative bg-(--bolt-bg) p-5"
                 style={{ animationDelay: `${i * 50}ms` }}
               >
-                <span className="absolute top-4 right-4 size-2 rounded-full bg-(--bolt-attention) sm:hidden" aria-hidden="true" />
+                <span
+                  className="absolute top-4 right-4 size-2 rounded-full bg-(--bolt-attention) sm:hidden"
+                  aria-hidden="true"
+                />
                 <p className="font-mono text-xs font-medium tracking-wide text-(--bolt-action-strong)">0{i + 1}</p>
                 <p className="mt-1 font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">{step.label}</p>
                 <p className="mt-1 text-[13px] leading-relaxed text-(--bolt-muted)">{step.detail}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-3 font-mono text-[11px] tracking-wide text-(--bolt-faint)">Each step rechecks membership, roles and hierarchy.</p>
+          <p className="mt-3 font-mono text-[11px] tracking-wide text-(--bolt-faint)">
+            Each step rechecks membership, roles and hierarchy.
+          </p>
         </div>
       </section>
 
@@ -202,7 +214,9 @@ export function HomePage(): React.JSX.Element {
             <div className="flex gap-4 py-6">
               <ShieldCheck size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-(--bolt-action-strong)" />
               <div>
-                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">Permissions rechecked at execution</h3>
+                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">
+                  Permissions rechecked at execution
+                </h3>
                 <p className="mt-1 max-w-[52ch] text-[15px] leading-relaxed text-(--bolt-muted)">
                   Every action verifies membership, configured roles and hierarchy right before it runs.
                 </p>
@@ -216,9 +230,15 @@ export function HomePage(): React.JSX.Element {
                 /
               </p>
               <div>
-                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">Slash and prefix</h3>
+                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">
+                  Slash and prefix
+                </h3>
                 <p className="mt-1 max-w-[52ch] text-[15px] leading-relaxed text-(--bolt-muted)">
-                  Slash for discovery, prefix for speed. Change the prefix per server with <code className="rounded bg-(--bolt-surface-hover) px-1.5 py-0.5 font-mono text-[13px]">/setprefix</code>.
+                  Slash for discovery, prefix for speed. Change the prefix per server with{' '}
+                  <code className="rounded bg-(--bolt-surface-hover) px-1.5 py-0.5 font-mono text-[13px]">
+                    /setprefix
+                  </code>
+                  .
                 </p>
               </div>
             </div>
@@ -230,7 +250,9 @@ export function HomePage(): React.JSX.Element {
                 {GUIDES.length}
               </p>
               <div>
-                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">Guides written from source</h3>
+                <h3 className="font-display text-[17px] font-bold tracking-tight text-(--bolt-ink)">
+                  Guides written from source
+                </h3>
                 <p className="mt-1 max-w-[52ch] text-[15px] leading-relaxed text-(--bolt-muted)">
                   Setup, permissions, workflows and internals — documented from the code, not from marketing.
                 </p>
@@ -271,7 +293,9 @@ function SectionHeading({
   return (
     <div className="max-w-[60ch] text-left">
       <p className="font-mono text-xs font-medium tracking-[0.18em] text-(--bolt-action-strong) uppercase">{eyebrow}</p>
-      <h2 className="mt-1 font-display text-[1.75rem] leading-tight font-bold tracking-[-0.02em] text-(--bolt-ink)">{title}</h2>
+      <h2 className="mt-1 font-display text-[1.75rem] leading-tight font-bold tracking-[-0.02em] text-(--bolt-ink)">
+        {title}
+      </h2>
       <p className="mt-1.5 text-[15px] leading-relaxed text-(--bolt-muted)">{copy}</p>
       <p className="mt-3">
         <Link

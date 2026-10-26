@@ -68,7 +68,9 @@ export function CommandGrid({ initialModule = 'all' }: { initialModule?: ModuleF
         </span>
         <span aria-hidden="true">·</span>
         <span>
-          default prefix <code className="rounded bg-(--bolt-surface-hover) px-1.5 py-0.5 font-mono text-xs">{defaultPrefix}</code> per-server
+          default prefix{' '}
+          <code className="rounded bg-(--bolt-surface-hover) px-1.5 py-0.5 font-mono text-xs">{defaultPrefix}</code>{' '}
+          per-server
         </span>
       </p>
       <div className="bolt-sticky-bar">
@@ -116,12 +118,16 @@ export function CommandGrid({ initialModule = 'all' }: { initialModule?: ModuleF
             <section key={`${g.module}/${g.sub}`} aria-label={`${g.module} ${g.sub}`}>
               <div className="mb-3 flex items-center gap-3">
                 <span className="size-1.5 shrink-0 rounded-full bg-(--bolt-attention)" aria-hidden="true" />
-                <h2 className="shrink-0 font-display text-[1.05rem] font-bold tracking-tight text-(--bolt-ink)">{g.sub}</h2>
+                <h2 className="shrink-0 font-display text-[1.05rem] font-bold tracking-tight text-(--bolt-ink)">
+                  {g.sub}
+                </h2>
                 <span className="shrink-0 rounded-full border border-(--bolt-line) bg-(--bolt-surface) px-2 py-0.5 font-mono text-[11px] font-medium text-(--bolt-muted)">
                   {g.commands.length}
                 </span>
                 <span className="h-px min-w-4 flex-1 bg-(--bolt-line)" aria-hidden="true" />
-                <span className="shrink-0 font-mono text-[11px] tracking-[0.08em] text-(--bolt-faint) uppercase">{g.module}</span>
+                <span className="shrink-0 font-mono text-[11px] tracking-[0.08em] text-(--bolt-faint) uppercase">
+                  {g.module}
+                </span>
               </div>
               <div className="grid gap-3 md:grid-cols-2">
                 {g.commands.map((cmd, i) => (

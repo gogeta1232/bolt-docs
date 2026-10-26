@@ -29,7 +29,7 @@ export function Topbar({ onPalette }: { onPalette: () => void }): React.JSX.Elem
         <span className="ms-auto" />
         <ThemeToggle />
         <a
-          href="https://github.com/gogeta1232/Bolt"
+          href="https://github.com/gogeta1232/Bolt-OS"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Bolt on GitHub"
